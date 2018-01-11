@@ -4,16 +4,19 @@
 
 namespace org.lisa.hyperledger
 
-participant User identified by email {
-  o String email
+asset Commodity identified by tradingSymbol {
+    o String tradingSymbol
+    o String description
+    o String mainExchange
+    o Double quantity
+    --> Trader owner
 }
-
-asset SampleAsset identified by assetId {
-  o String assetId
-  o String value
+participant Trader identified by tradeId {
+    o String tradeId
+    o String firstName
+    o String lastName
 }
-
-transaction ChangeAssetValue {
-  o String newValue
-  --> Asset relatedAsset
+transaction Trade {
+    --> Commodity commodity
+    --> Trader newOwner
 }

@@ -6,7 +6,7 @@
     "test": "mocha --recursive"
   },
   "author": "Lisa",
-  "email": "lisa.x.li@pwc.com",
+  "email": "lissdy2013@gmail.com",
   "license": "Apache-2.0",
   "devDependencies": {
     "composer-admin": "latest",
