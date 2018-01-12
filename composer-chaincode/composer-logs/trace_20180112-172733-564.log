@@ -1,0 +1,52 @@
+2018-01-11T09:28:15.791Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: error starting container: Failed to generate platform-specific docker build: Error returned from build: 2 "# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+In file included from chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:7:0:
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go: In function '_duk_error':
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.h:510:127: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  (duk_error_raw((ctx), (duk_errcode_t) (err_code), (const char *) (DUK_FILE_MACRO), (duk_int_t) (DUK_LINE_MACRO), __VA_ARGS__), (duk_ret_t) 0)
+                                                                                                                               ^
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:153:2: note: in expansion of macro 'duk_error'
+  duk_error(ctx, err_code, "%s", str);
+  ^
+# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.go:134: constant 18446744073709551615 overflows int
+"
+    at /usr/local/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-11T09:28:15.793Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: error starting container: Failed to generate platform-specific docker build: Error returned from build: 2 "# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+In file included from chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:7:0:
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go: In function '_duk_error':
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.h:510:127: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  (duk_error_raw((ctx), (duk_errcode_t) (err_code), (const char *) (DUK_FILE_MACRO), (duk_int_t) (DUK_LINE_MACRO), __VA_ARGS__), (duk_ret_t) 0)
+                                                                                                                               ^
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:153:2: note: in expansion of macro 'duk_error'
+  duk_error(ctx, err_code, "%s", str);
+  ^
+# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.go:134: constant 18446744073709551615 overflows int
+"
+    at /usr/local/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-11T09:28:15.835Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: error starting container: Failed to generate platform-specific docker build: Error returned from build: 2 "# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+In file included from chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:7:0:
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go: In function '_duk_error':
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.h:510:127: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  (duk_error_raw((ctx), (duk_errcode_t) (err_code), (const char *) (DUK_FILE_MACRO), (duk_int_t) (DUK_LINE_MACRO), __VA_ARGS__), (duk_ret_t) 0)
+                                                                                                                               ^
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:153:2: note: in expansion of macro 'duk_error'
+  duk_error(ctx, err_code, "%s", str);
+  ^
+# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.go:134: constant 18446744073709551615 overflows int
+"
+    at /usr/local/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
+2018-01-11T09:28:15.984Z ERROR   HLFConnectionManager    :fabric-client()          [client-utils.js]: sendPeersProposal - Promise is rejected: Error: error starting container: Failed to generate platform-specific docker build: Error returned from build: 2 "# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+In file included from chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:7:0:
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go: In function '_duk_error':
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.h:510:127: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+  (duk_error_raw((ctx), (duk_errcode_t) (err_code), (const char *) (DUK_FILE_MACRO), (duk_int_t) (DUK_LINE_MACRO), __VA_ARGS__), (duk_ret_t) 0)
+                                                                                                                               ^
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/api.go:153:2: note: in expansion of macro 'duk_error'
+  duk_error(ctx, err_code, "%s", str);
+  ^
+# composer/vendor/gopkg.in/olebedev/go-duktape.v3
+chaincode/input/src/composer/vendor/gopkg.in/olebedev/go-duktape.v3/duktape.go:134: constant 18446744073709551615 overflows int
+"
+    at /usr/local/lib/node_modules/composer-cli/node_modules/grpc/src/node/src/client.js:554:15 {}$
