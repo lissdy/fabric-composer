@@ -4,6 +4,7 @@ The directions for using this are documented in the Hyperledger Fabric ["Build Y
 
 ```
 # -profile 从configtx.yaml中查找到指定的profile来生成配置
-# -outputBlock 将初始区块写入指定文件 
-configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel-artifacts/genesis.block
+# -outputBlock 将初始区块写入指定文件
+configtxgen -profile TwoOrgsOrderersGenesis -outputBlock ./channel-artifacts/genesis.block
+configtxgen -profile TwoOrgsOrderersGenesis -inspectBlock ./channel-artifacts/genesis.block
 ```

@@ -20,10 +20,10 @@ Profiles:
             <<: *OrdererDefaults
             Organizations:
                 - *OrdererOrg # 属于Orderer通道的组织
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
-                - *OrdererOrg
+        # Application:
+        #     <<: *ApplicationDefaults
+        #     Organizations:
+        #         - *OrdererOrg
         Consortiums:
             SampleConsortium: # 创建更多应用通道时的联盟
                 Organizations:
@@ -31,6 +31,62 @@ Profiles:
                     - *Org1
                     - *Org2
 
+################################################################################
+#
+#   Section: Organizations
+#
+#   - This section defines the different organizational identities which will
+#   be referenced later in the configuration.
+#
+################################################################################
+Organizations:
+
+    # SampleOrg defines an MSP using the sampleconfig.  It should never be used
+    # in production but may be used as a template for other definitions
+    - &OrdererOrg
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: OrdererOrg
+
+        # ID to load the MSP definition as
+        ID: OrdererMSP
+        AdminPrincipal: Role.ADMIN # 组织管理员所需要的身份
+        # MSPDir is the filesystem path which contains the MSP configuration
+        MSPDir: crypto-config/ordererOrganizations/example.com/msp
+
+    - &Org1
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org1MSP
+
+        # ID to load the MSP definition as
+        ID: Org1MSP
+
+        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org1.example.com
+              Port: 7051
+
+    - &Org2
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: Org2MSP
+
+        # ID to load the MSP definition as
+        ID: Org2MSP
+
+        MSPDir: crypto-config/peerOrganizations/org2.example.com/msp
+
+        AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+            - Host: peer0.org2.example.com
+              Port: 7051
 ################################################################################
 #
 #   SECTION: Orderer
@@ -87,4 +143,18 @@ Orderer: &OrdererDefaults
 
     # Organizations is the list of orgs which are defined as participants on
     # the orderer side of the network.
+    Organizations:
+
+################################################################################
+#
+#   SECTION: Application
+#
+#   - This section defines the values to encode into a config transaction or
+#   genesis block for application related parameters.
+#
+################################################################################
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network.
     Organizations:

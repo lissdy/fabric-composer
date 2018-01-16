@@ -51,7 +51,7 @@ Organizations:
 
         # ID to load the MSP definition as
         ID: OrdererMSP
-
+        
         # MSPDir is the filesystem path which contains the MSP configuration
         MSPDir: crypto-config/ordererOrganizations/example.com/msp
 
