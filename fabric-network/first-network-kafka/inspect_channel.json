@@ -1,0 +1,119 @@
+Channel creation for channel: mychannel
+
+Read Set:
+{
+    "Channel": {
+        "Values": {
+            "Consortium": {
+                "Version": "0",
+                "ModPolicy": "",
+                "Value": {
+                    "name": "SampleConsortium"
+                }
+            }
+        },
+        "Policies": {},
+        "Groups": {
+            "Application": {
+                "Values": {},
+                "Policies": {},
+                "Groups": {
+                    "Org1MSP": {
+                        "Values": {},
+                        "Policies": {},
+                        "Groups": {}
+                    },
+                    "Org2MSP": {
+                        "Values": {},
+                        "Policies": {},
+                        "Groups": {}
+                    },
+                    "OrdererOrg": {
+                        "Values": {},
+                        "Policies": {},
+                        "Groups": {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+Write Set:
+{
+    "Channel": {
+        "Values": {
+            "Consortium": {
+                "Version": "0",
+                "ModPolicy": "",
+                "Value": {
+                    "name": "SampleConsortium"
+                }
+            }
+        },
+        "Policies": {},
+        "Groups": {
+            "Application": {
+                "Values": {},
+                "Policies": {
+                    "Readers": {
+                        "Version": "0",
+                        "ModPolicy": "Admins",
+                        "Policy": {
+                            "PolicyType": "3",
+                            "Policy": {
+                                "subPolicy": "Readers",
+                                "rule": "ANY"
+                            }
+                        }
+                    },
+                    "Admins": {
+                        "Version": "0",
+                        "ModPolicy": "Admins",
+                        "Policy": {
+                            "PolicyType": "3",
+                            "Policy": {
+                                "subPolicy": "Admins",
+                                "rule": "MAJORITY"
+                            }
+                        }
+                    },
+                    "Writers": {
+                        "Version": "0",
+                        "ModPolicy": "Admins",
+                        "Policy": {
+                            "PolicyType": "3",
+                            "Policy": {
+                                "subPolicy": "Writers",
+                                "rule": "ANY"
+                            }
+                        }
+                    }
+                },
+                "Groups": {
+                    "OrdererOrg": {
+                        "Values": {},
+                        "Policies": {},
+                        "Groups": {}
+                    },
+                    "Org1MSP": {
+                        "Values": {},
+                        "Policies": {},
+                        "Groups": {}
+                    },
+                    "Org2MSP": {
+                        "Values": {},
+                        "Policies": {},
+                        "Groups": {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+Delta Set:
+[Groups] /Channel/Application
+[Policy] /Channel/Application/Admins
+[Policy] /Channel/Application/Writers
+[Policy] /Channel/Application/Readers

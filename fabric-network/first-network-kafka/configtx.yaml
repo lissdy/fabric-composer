@@ -31,6 +31,14 @@ Profiles:
                     - *Org1
                     - *Org2
 
+    TwoOrgsChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *OrdererOrg
+                - *Org1
+                - *Org2
 ################################################################################
 #
 #   Section: Organizations
