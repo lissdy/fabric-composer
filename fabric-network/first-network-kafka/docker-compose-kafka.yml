@@ -6,7 +6,7 @@
 version: '2'
 
 networks:
-    default:
+  byfn:
 
 services:
 
@@ -21,9 +21,7 @@ services:
             - 2888
             - 3888
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     zookeeper1:
         container_name: zookeeper1
@@ -36,9 +34,7 @@ services:
             - 2888
             - 3888
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     zookeeper2:
         container_name: zookeeper2
@@ -51,9 +47,7 @@ services:
             - 2888
             - 3888
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     kafka0:
         image: hyperledger/fabric-kafka
@@ -78,9 +72,7 @@ services:
             - zookeeper1:zookeeper1
             - zookeeper2:zookeeper2
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     kafka1:
         image: hyperledger/fabric-kafka
@@ -105,9 +97,7 @@ services:
             - zookeeper1:zookeeper1
             - zookeeper2:zookeeper2
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     kafka2:
         image: hyperledger/fabric-kafka
@@ -132,9 +122,7 @@ services:
             - zookeeper1:zookeeper1
             - zookeeper2:zookeeper2
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     kafka3:
         image: hyperledger/fabric-kafka
@@ -159,9 +147,7 @@ services:
             - zookeeper1:zookeeper1
             - zookeeper2:zookeeper2
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     orderer0.example.com:
         container_name: orderer0.example.com
@@ -190,7 +176,7 @@ services:
             - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/tls/ca.crt]
         volumes:
             - ./channel-artifacts:/var/hyperledger/configs
-            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/msp:/var/hyperledger/orderer/msp
+            - ./crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/msp:/var/hyperledger/msp
             - ./crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/tls:/var/hyperledger/tls
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
         command: orderer
@@ -207,9 +193,7 @@ services:
             - kafka2:kafka2
             - kafka3:kafka3
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     orderer1.example.com:
         container_name: orderer1.example.com
@@ -255,9 +239,7 @@ services:
             - kafka2:kafka2
             - kafka3:kafka3
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     orderer2.example.com:
         container_name: orderer2.example.com
@@ -303,9 +285,7 @@ services:
             - kafka2:kafka2
             - kafka3:kafka3
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     peer0.org1.example.com:
         container_name: peer0.org1.example.com
@@ -348,9 +328,7 @@ services:
             - orderer2.example.com
         command: peer node start
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     peer0.org2.example.com:
         image: hyperledger/fabric-peer
@@ -393,9 +371,7 @@ services:
             - orderer2.example.com
         command: peer node start
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     peer1.org1.example.com:
         image: hyperledger/fabric-peer
@@ -439,9 +415,7 @@ services:
             - orderer2.example.com
         command: peer node start
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     peer1.org2.example.com:
         image: hyperledger/fabric-peer
@@ -485,9 +459,7 @@ services:
             - orderer2.example.com
         command: peer node start
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
 
     cli:
         container_name: cli
@@ -503,7 +475,7 @@ services:
             - CORE_PEER_TLS_KEY_FILE=/var/hyperledger/tls/server.key
             - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/tls/ca.crt
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-        command: /bin/bash -c 'sleep 6000000000000000000'
+        command: /bin/bash -c 'sleep 10000'
         volumes:
             - /var/run/:/host/var/run/
             - ./../chaincode/:/opt/gopath/src/github.com/chaincode
@@ -520,6 +492,4 @@ services:
           - peer0.org2.example.com
           - peer1.org2.example.com
         networks:
-          default:
-             aliases:
-               - lisa
+          - byfn
