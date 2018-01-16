@@ -170,7 +170,7 @@ services:
             - ORDERER_GENERAL_GENESISMETHOD=file
             - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/configs/genesis.block
             # TLS settings
-            - ORDERER_GENERAL_TLS_ENABLED=false
+            - ORDERER_GENERAL_TLS_ENABLED=true
             - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/tls/server.key
             - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/tls/server.crt
             - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/tls/ca.crt]
@@ -216,7 +216,7 @@ services:
             - ORDERER_GENERAL_GENESISMETHOD=file
             - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/configs/genesis.block
             # TLS settings
-            - ORDERER_GENERAL_TLS_ENABLED=false
+            - ORDERER_GENERAL_TLS_ENABLED=true
             - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/tls/server.key
             - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/tls/server.crt
             - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/tls/ca.crt]
@@ -262,7 +262,7 @@ services:
             - ORDERER_GENERAL_GENESISMETHOD=file
             - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/configs/genesis.block
             # TLS settings
-            - ORDERER_GENERAL_TLS_ENABLED=false
+            - ORDERER_GENERAL_TLS_ENABLED=true
             - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/tls/server.key
             - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/tls/server.crt
             - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/tls/ca.crt]
@@ -475,11 +475,13 @@ services:
             - CORE_PEER_TLS_KEY_FILE=/var/hyperledger/tls/server.key
             - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/tls/ca.crt
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-        command: /bin/bash -c 'sleep 10000'
-        volumes:    
+        command: /bin/bash -c './scripts/script.sh mychannel; sleep 10000'
+        volumes:
             - /var/run/:/host/var/run/
             - ./../chaincode/:/opt/gopath/src/github.com/chaincode
+            - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
             - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
+            - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
             - ./crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/var/hyperledger/tls
         ports:
             - '9092'
