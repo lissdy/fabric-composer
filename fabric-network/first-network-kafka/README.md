@@ -22,3 +22,8 @@ configtxgen -profile TwoOrgsChannel -inspectChannelCreateTx ./channel-artifacts/
 configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID mychannel -asOrg Org1MSP
 configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID mychannel -asOrg Org2MSP
 ```
+
+3. 启动服务
+```
+CHANNEL_NAME=mychannel TIMEOUT=10000 DELAY=3 LANG=golang docker-compose -f docker-compose-kafka.yml up -d 2>&1
+```
