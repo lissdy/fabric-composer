@@ -30,6 +30,7 @@ CHANNEL_NAME=mychannel TIMEOUT=10000 DELAY=3 LANG=golang docker-compose -f docke
 
 4. 创建通道 CLI
 ```
+docker exec -it cli bash
 ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 peer channel create -o orderer0.example.com:7050 -c mychannel -f /var/hyperledger/configs/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA >&log.txt
 ```

@@ -64,13 +64,9 @@ setGlobals () {
 
 createChannel() {
 	setGlobals 0
-echo "=========d========="
   if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
-			echo "=================="
-		peer channel create -o orderer0.example.com:7050 -c mychannel -f ../channel-artifacts/channel.tx >&log.txt
-		echo "==================ffff"
+		peer channel create -o orderer0.example.com:7050 -c mychannel -f ./channel-artifacts/channel.tx >&log.txt
 	else
-			echo "==================d"
 		peer channel create -o orderer0.example.com:7050 -c mychannel -f ./channel-artifacts/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA >&log.txt
 	fi
 

@@ -90,6 +90,7 @@ Write Set:
                         }
                     }
                 },
+                
                 "Groups": {
                     "OrdererOrg": {
                         "Values": {},
