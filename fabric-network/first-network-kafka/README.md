@@ -27,3 +27,8 @@ configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts
 ```
 CHANNEL_NAME=mychannel TIMEOUT=10000 DELAY=3 LANG=golang docker-compose -f docker-compose-kafka.yml up -d 2>&1
 ```
+
+4. 创建通道 CLI
+```
+peer channel create -o orderer0.example.com:7050 -c mychannel -f /var/hyperledger/configs/channel.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA >&log.txt
+```

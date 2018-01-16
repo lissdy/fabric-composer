@@ -476,10 +476,10 @@ services:
             - CORE_PEER_TLS_ROOTCERT_FILE=/var/hyperledger/tls/ca.crt
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
         command: /bin/bash -c 'sleep 10000'
-        volumes:
+        volumes:    
             - /var/run/:/host/var/run/
             - ./../chaincode/:/opt/gopath/src/github.com/chaincode
-            - ./channel-artifacts:/var/hyperledger/configs
+            - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
             - ./crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/var/hyperledger/tls
         ports:
             - '9092'
