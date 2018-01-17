@@ -2,6 +2,10 @@
 
 The directions for using this are documented in the Hyperledger Fabric ["Build Your First Network"](http://hyperledger-fabric.readthedocs.io/en/latest/build_network.html) tutorial.
 
+0. 生成认证证书
+```
+cryptogen generate --config=./crypto-config.yaml
+```
 1. 生成启动orderer需要的初始区块，并支持检查区块内容
 ```
 # -profile 从configtx.yaml中查找到指定的profile来生成配置
