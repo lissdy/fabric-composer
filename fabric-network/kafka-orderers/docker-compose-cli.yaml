@@ -148,7 +148,7 @@ services:
         networks:
           - byfn
 
-          
+
   orderer.example.com:
     extends:
       file:   base/docker-compose-base.yaml
@@ -165,7 +165,7 @@ services:
             - kafka2:kafka2
             - kafka3:kafka3
     networks:
-      - byfn
+          - byfn
 
 
   orderer1.example.com:
