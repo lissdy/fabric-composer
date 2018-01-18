@@ -14,19 +14,19 @@
 ################################################################################
 Profiles:
 
-    TwoOrgsOrdererGenesis:
-        Orderer:
+    TwoOrgsOrdererGenesis: # orderer系统通道模版
+        Orderer: # 指定orderer系统通道自身的配置信息
             <<: *OrdererDefaults
-            Organizations:
+            Organizations: # 参与到此orderer的组织信息
                 - *OrdererOrg
-        Consortiums:
+        Consortiums: # orderer所服务的联盟列表
             SampleConsortium:
                 Organizations:
                     - *Org1
                     - *Org2
-    TwoOrgsChannel:
-        Consortium: SampleConsortium
-        Application:
+    TwoOrgsChannel: # 应用通道模版
+        Consortium: SampleConsortium #该应用通道所关联联盟的名称
+        Application: #指定属于某应用通道的信息
             <<: *ApplicationDefaults
             Organizations:
                 - *Org1
@@ -104,7 +104,7 @@ Orderer: &OrdererDefaults
     OrdererType: kafka
 
     Addresses:
-        - orderer.example.com:7050
+        - orderer0.example.com:7050
         - orderer1.example.com:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch

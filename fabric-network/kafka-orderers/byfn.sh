@@ -270,7 +270,7 @@ function generateChannelArtifacts() {
   fi
 
   echo "##########################################################"
-  echo "#########  Generating Orderer Genesis block ##############"
+  echo "#########  Generating Orderer Genesis block #############"
   echo "##########################################################"
   # Note: For some unknown reason (at least for now) the block file can't be
   # named orderer.genesis.block or the orderer will fail to launch!
