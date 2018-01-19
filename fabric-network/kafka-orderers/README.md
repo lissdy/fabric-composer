@@ -1,4 +1,5 @@
-#Bringing up a Kafka-based Ordering Service
+# Bringing up a Kafka-based Ordering Service
+
 排序服务需要处理fabirc网络中的所有交易消息，是全网的关键所在。Fabric目前（2018/01）支持两种排序类型：solo和kafka。在生成环境下，Orderer节点需要采用kafka集群进行排序，以提高其可靠性。本文就介绍排序节点基于kafka的配置方式。
 
 我们要配置的网络的拓扑结构与[Building Your First Network](http://hyperledger-fabric.readthedocs.io/en/release/build_network.html)相同，即一个通道，两个组织，每个组织下两个peer节点，每个组织中的第一个节点（peer0）作为锚节点与其他组织进行通信。不同之处在于BYFN的排序类型是solo，仅有一个排序节点。而我们要在kafka基础上配置多个排序节点，以便在生成环境使用。
@@ -159,6 +160,7 @@ docker exec -it cli bash
 # 在cli容器内执行脚本
 /bin/bash -c './scripts/script.sh mychannel'
 ```
+
 运行结果如下
 ![result](http://upload-images.jianshu.io/upload_images/4269060-7cd109470af1e011.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
