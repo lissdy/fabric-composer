@@ -50,7 +50,7 @@ var queryChaincode = function(peer, channelName, chaincodeName, fcn, args, org) 
 
 var getBlockByNumber = function(peer,channelName, blockNumber, org) {
 	var target = buildTarget(peer, org);
-	var channel = helper.getChannelForOrg(org,channelName);		
+	var channel = helper.getChannelForOrg(org,channelName);
 	return helper.getOrgAdmin(org).then((member) => {
 		return channel.queryBlock(parseInt(blockNumber), target);
 	}, (err) => {
@@ -58,7 +58,7 @@ var getBlockByNumber = function(peer,channelName, blockNumber, org) {
 		return 'Failed to get submitter Error: ' + err.stack ?
 			err.stack : err;
 	}).then((channelinfo) => {
-		if (channelinfo) {			
+		if (channelinfo) {
 			return channelinfo;
 		} else {
 			logger.error('response_payloads is null');
@@ -83,11 +83,11 @@ var getTransactionByID = function(peer,channelName, trxnID, org) {
 var getBlockByHash = function(peer, hash, org) {
 	var target = buildTarget(peer, org);
 	var channel = helper.getChannelForOrg(org);
-	return channel.queryBlockByHash(new Buffer(hash,"hex"), target);	
+	return channel.queryBlockByHash(new Buffer(hash,"hex"), target);
 };
 var getChainInfo = function(peer,channelName, org) {
 	var target = buildTarget(peer, org);
-	var client = helper.getClientForOrg(org);	
+	var client = helper.getClientForOrg(org);
 	var channel = helper.getChannelForOrg(org,channelName);
 	return helper.getOrgAdmin(org).then((member) => {
 		return channel.queryInfo(target);
@@ -167,19 +167,19 @@ var getInstalledChaincodes = function(peer,channelName, type, org) {
 
 var getOrganizations = function(org,channelName){
 	var channel = helper.getChannelForOrg(org,channelName);
-	return channel.getOrganizations();		
+	return channel.getOrganizations();
 };
 
 var getChannels = function(peer, org) {
 	var target = buildTarget(peer, org);
-	var client = helper.getClientForOrg(org);	
+	var client = helper.getClientForOrg(org);
 	return helper.getOrgAdmin(org).then((member) => {
 		return client.queryChannels(target);
 	}, (err) => {
 		return 'Failed to get submitter Error: ' + err.stack ?
 			err.stack : err;
 	}).then((channelinfo) => {
-		if (channelinfo) {			
+		if (channelinfo) {
 			return channelinfo;
 		} else {
 			logger.error('response_payloads is null');
@@ -196,9 +196,9 @@ var getChannels = function(peer, org) {
 };
 
 var getPeerList = function(org,channelName){
-	var client = helper.getClientForOrg(org);		
+	var client = helper.getClientForOrg(org);
 	var channel = helper.getChannelForOrg(org,channelName);
-	return channel.getPeers();	
+	return channel.getPeers();
 };
 
 var getChannelHeight=function(peer,channelName,org){

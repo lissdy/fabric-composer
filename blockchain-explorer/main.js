@@ -49,10 +49,9 @@ app.post("/api/tx/getinfo", function(req, res) {
         var header = response_payloads['transactionEnvelope']['payload']['header']
         var data = response_payloads['transactionEnvelope']['payload']['data']
         var signature = response_payloads['transactionEnvelope']['signature'].toString("hex")
-
         res.send({
             'tx_id':header.channel_header.tx_id,
-            'timestamp':header.channel_header.timestamp,
+            'timestamp':new Date(header.channel_header.timestamp).toISOString(),
             'channel_id':header.channel_header.channel_id,
             'type':header.channel_header.type,
         })
@@ -167,8 +166,3 @@ app.post("/peerlist", function(req, res) {
 var server = http.listen(port, function() {
     console.log(`Please open Internet explorer to access ：http://${host}:${port}/`);
 });
-
-
-
-
-
