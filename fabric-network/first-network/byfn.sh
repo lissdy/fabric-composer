@@ -312,6 +312,9 @@ function generateChannelArtifacts() {
   echo
 }
 
+function clearData(){
+   rm -rf ./data/*
+}
 # Obtain the OS and Architecture string that will be used to select the correct
 # native binaries for your platform
 OS_ARCH=$(echo "$(uname -s|tr '[:upper:]' '[:lower:]'|sed 's/mingw64_nt.*/windows/')-$(uname -m | sed 's/x86_64/amd64/g')" | awk '{print tolower($0)}')
@@ -385,6 +388,8 @@ askProceed
 
 #Create the network using docker compose
 if [ "${MODE}" == "up" ]; then
+  # clear data folder
+  clearData
   networkUp
   elif [ "${MODE}" == "down" ]; then ## Clear the network
   networkDown
