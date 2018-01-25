@@ -30,7 +30,7 @@
     }
 	},
    "host":"localhost",
-   "port":"9999",
+   "port":"8888",
    "channel": "mychannel",
    "GOPATH":"../artifacts",
    "keyValueStore":"/tmp/fabric-client-kvs",

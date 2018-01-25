@@ -28,5 +28,8 @@
     "stompjs": "^2.3.3",
     "winston": "^2.2.0"
   },
+  "scripts": {
+    "stop": "killall node"
+  },
   "license": "Apache-2.0"
 }
