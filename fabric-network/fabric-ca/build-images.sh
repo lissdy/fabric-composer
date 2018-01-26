@@ -44,7 +44,7 @@ make docker-clean
 log "Cleaning and rebuilding fabric docker images ..."
 cd $GOPATH/src/github.com/hyperledger/fabric
 assertOnMasterBranch
-# make docker-clean docker
+make docker-clean docker
 
 # Perform docker clean for fabric and rebuild against latest fabric images just built
 log "Rebuilding fabric-ca docker images ..."
