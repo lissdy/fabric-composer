@@ -57,7 +57,7 @@ crlsizelimit: 512000
 #############################################################################
 tls:
   # Enable TLS (default: false)
-  enabled: true
+  enabled: false
   # TLS for the server's listening port
   certfile: ca-cert.pem
   keyfile: ca-key.pem
