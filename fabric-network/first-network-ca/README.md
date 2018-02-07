@@ -44,3 +44,40 @@ Certificate:
          24:17:14:b7:c0:57:eb:3b:f2:f9:ad:19:54:1f:ad:f2:dc
 ```
 数字证书包含了签名算法信息、申请者基本信息、申请者公钥信息等。
+
+3. 注册引导节点
+```
+fabric-ca-client enroll -u http://admin:adminpw@localhost:7054
+```
+```
+2018/02/07 16:36:04 [INFO] User provided config file: /Users/lli571/fabric-ca/clients/admin/fabric-ca-client-config.yaml
+2018/02/07 16:36:04 [INFO] generating key: &{A:ecdsa S:256}
+2018/02/07 16:36:04 [INFO] encoded CSR
+2018/02/07 16:36:05 [INFO] Stored client certificate at /Users/lli571/fabric-ca/clients/admin/msp/signcerts/cert.pem
+2018/02/07 16:36:05 [INFO] Stored CA root certificate at /Users/lli571/fabric-ca/clients/admin/msp/cacerts/localhost-7054.pem
+```
+server端收到的登记请求
+```
+2018/02/07 16:36:05 [INFO] 127.0.0.1:52646 - "POST /enroll" 200
+```
+
+在ca-client目录下生成的目录结构如下
+```
+clients
+└── admin
+    ├── fabric-ca-client-config.yaml
+    └── msp
+        ├── cacerts
+        │   └── localhost-7054.pem
+        ├── keystore
+        │   ├── 69c1b9af43c3be39a27607834c82ffda1d83eae448da20b28fef692beb132cd6_sk
+        │   ├── 76be290c8d0eac97b56625afb4ccf6547b21efb02d7bba91ee49fe0c5707094b_sk
+        │   ├── 7be86e0a19a39890f6b8ac6c5a67bf5191f621a73e8c6d03a75f0aa8a80ab18a_sk
+        │   ├── af503365799e4251ae54ade8c9664c59d5b2ae69d8e3ca980b77e95cd761f140_sk
+        │   ├── b3a2a778724f2034d2c681077760d719270db938eb086584ad7771f5f5bf689e_sk
+        │   └── c81cf2f9500669af7d83df3bb99220e663a799bd60b038427585b9bf60c2ecb8_sk
+        └── signcerts
+            └── cert.pem
+
+5 directories, 9 files
+```
