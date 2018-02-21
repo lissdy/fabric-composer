@@ -1,0 +1,22 @@
+{
+  "name": "fabric-network",
+  "type": "hlfv1",
+  "mspID": "Org1MSP",
+  "peers": [
+      {
+          "requestURL": "grpc://localhost:7051",
+          "eventURL": "grpc://localhost:7053"
+      }
+  ],
+  "ca": {
+      "url": "http://localhost:7054",
+      "name": "ca.org1.example.com"
+  },
+  "orderers": [
+      {
+          "url" : "grpc://localhost:7050"
+      }
+  ],
+  "channel": "composerchannel",
+  "timeout": 300
+}
